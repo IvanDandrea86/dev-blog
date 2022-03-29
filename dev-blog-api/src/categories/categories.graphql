@@ -1,0 +1,28 @@
+scalar DateTime
+
+type Category {
+  # Example field (placeholder)
+  exampleField: Int
+  createdAt:DateTime
+  updatedAt:DateTime
+}
+
+input CreateCategoryInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateCategoryInput {
+  id: Int!
+}
+
+type Query {
+  categories: [Category]!
+  category(id: Int!): Category
+}
+
+type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  removeCategory(id: Int!): Category
+}
