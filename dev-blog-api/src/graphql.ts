@@ -101,7 +101,6 @@ export class Post {
 export class User {
     id?: Nullable<number>;
     email: string;
-    password: string;
     posts: Post[];
     role?: Nullable<Role>;
     createdAt?: Nullable<DateTime>;

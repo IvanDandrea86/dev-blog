@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from '../../prisma/prisma.service';
 import { CreateCategoryInput } from './dto/create-category.input';
 import { UpdateCategoryInput } from './dto/update-category.input';
 
 @Injectable()
 export class CategoriesService {
+  constructor(private prisma: PrismaService) {}
   create(createCategoryInput: CreateCategoryInput) {
     return 'This action adds a new category';
   }

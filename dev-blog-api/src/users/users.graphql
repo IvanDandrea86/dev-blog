@@ -9,7 +9,7 @@ enum Role {
 type User {
   id: Int
   email: String!
-  password: String!
+  # password: String!
   posts: [Post!]!
   role: Role
   createdAt: DateTime
