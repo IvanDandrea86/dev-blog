@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -6,32 +7,49 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export enum Role {
+    ADMIN = "ADMIN",
+    USER = "USER"
+}
+
 export class CreateCategoryInput {
-    exampleField?: Nullable<number>;
+    name: string;
+    posts: CreatePostInput[];
 }
 
 export class UpdateCategoryInput {
-    id: number;
+    name: string;
+    posts: CreatePostInput[];
 }
 
 export class CreatePostInput {
-    exampleField?: Nullable<number>;
+    author: CreateUserInput;
+    authorId: number;
+    categories: CreateCategoryInput[];
+    content?: Nullable<string>;
 }
 
 export class UpdatePostInput {
-    id: number;
+    author: CreateUserInput;
+    authorId: number;
+    categories: CreateCategoryInput[];
+    content?: Nullable<string>;
 }
 
 export class CreateUserInput {
-    exampleField?: Nullable<number>;
+    email: string;
+    password: string;
 }
 
 export class UpdateUserInput {
-    id: number;
+    email: string;
+    password: string;
 }
 
 export class Category {
-    exampleField?: Nullable<number>;
+    id: number;
+    name: string;
+    posts: Post[];
     createdAt?: Nullable<DateTime>;
     updatedAt?: Nullable<DateTime>;
 }
@@ -71,13 +89,21 @@ export abstract class IMutation {
 }
 
 export class Post {
-    exampleField?: Nullable<number>;
+    id: number;
+    author: User;
+    authorId: number;
+    categories: Category[];
+    content?: Nullable<string>;
     createdAt?: Nullable<DateTime>;
     updatedAt?: Nullable<DateTime>;
 }
 
 export class User {
-    exampleField?: Nullable<number>;
+    id?: Nullable<number>;
+    email: string;
+    password: string;
+    posts: Post[];
+    role?: Nullable<Role>;
     createdAt?: Nullable<DateTime>;
     updatedAt?: Nullable<DateTime>;
 }

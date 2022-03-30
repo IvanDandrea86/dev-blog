@@ -1,19 +1,29 @@
 scalar DateTime
+enum Role {
+  ADMIN
+  USER
+  
+}
+
 
 type User {
-  # Example field (placeholder)
-  exampleField: Int
-  createdAt:DateTime
-  updatedAt:DateTime
+  id: Int
+  email: String!
+  password: String!
+  posts: [Post!]!
+  role: Role
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 input CreateUserInput {
-  # Example field (placeholder)
-  exampleField: Int
+  email: String!
+  password: String!
 }
 
 input UpdateUserInput {
-  id: Int!
+  email: String!
+  password: String!
 }
 
 type Query {

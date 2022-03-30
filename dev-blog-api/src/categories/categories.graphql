@@ -1,19 +1,23 @@
 scalar DateTime
 
 type Category {
-  # Example field (placeholder)
-  exampleField: Int
+ 
+  id:Int!
+  name:String!
+  posts:[Post!]!
   createdAt:DateTime
   updatedAt:DateTime
 }
 
 input CreateCategoryInput {
-  # Example field (placeholder)
-  exampleField: Int
+  name:String!
+  posts:[CreatePostInput!]!
 }
 
 input UpdateCategoryInput {
-  id: Int!
+  name:String!
+  posts:[CreatePostInput!]! 
+  
 }
 
 type Query {
