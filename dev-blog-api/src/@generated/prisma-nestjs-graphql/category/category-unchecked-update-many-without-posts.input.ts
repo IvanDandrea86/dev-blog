@@ -1,0 +1,43 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { CategoryCreateWithoutPostsInput } from './category-create-without-posts.input';
+import { CategoryCreateOrConnectWithoutPostsInput } from './category-create-or-connect-without-posts.input';
+import { CategoryUpsertWithWhereUniqueWithoutPostsInput } from './category-upsert-with-where-unique-without-posts.input';
+import { CategoryWhereUniqueInput } from './category-where-unique.input';
+import { CategoryUpdateWithWhereUniqueWithoutPostsInput } from './category-update-with-where-unique-without-posts.input';
+import { CategoryUpdateManyWithWhereWithoutPostsInput } from './category-update-many-with-where-without-posts.input';
+import { CategoryScalarWhereInput } from './category-scalar-where.input';
+
+@InputType()
+export class CategoryUncheckedUpdateManyWithoutPostsInput {
+
+    @Field(() => [CategoryCreateWithoutPostsInput], {nullable:true})
+    create?: Array<CategoryCreateWithoutPostsInput>;
+
+    @Field(() => [CategoryCreateOrConnectWithoutPostsInput], {nullable:true})
+    connectOrCreate?: Array<CategoryCreateOrConnectWithoutPostsInput>;
+
+    @Field(() => [CategoryUpsertWithWhereUniqueWithoutPostsInput], {nullable:true})
+    upsert?: Array<CategoryUpsertWithWhereUniqueWithoutPostsInput>;
+
+    @Field(() => [CategoryWhereUniqueInput], {nullable:true})
+    set?: Array<CategoryWhereUniqueInput>;
+
+    @Field(() => [CategoryWhereUniqueInput], {nullable:true})
+    disconnect?: Array<CategoryWhereUniqueInput>;
+
+    @Field(() => [CategoryWhereUniqueInput], {nullable:true})
+    delete?: Array<CategoryWhereUniqueInput>;
+
+    @Field(() => [CategoryWhereUniqueInput], {nullable:true})
+    connect?: Array<CategoryWhereUniqueInput>;
+
+    @Field(() => [CategoryUpdateWithWhereUniqueWithoutPostsInput], {nullable:true})
+    update?: Array<CategoryUpdateWithWhereUniqueWithoutPostsInput>;
+
+    @Field(() => [CategoryUpdateManyWithWhereWithoutPostsInput], {nullable:true})
+    updateMany?: Array<CategoryUpdateManyWithWhereWithoutPostsInput>;
+
+    @Field(() => [CategoryScalarWhereInput], {nullable:true})
+    deleteMany?: Array<CategoryScalarWhereInput>;
+}

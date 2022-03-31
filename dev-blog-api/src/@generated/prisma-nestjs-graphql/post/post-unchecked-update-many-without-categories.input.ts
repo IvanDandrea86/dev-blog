@@ -1,0 +1,43 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { PostCreateWithoutCategoriesInput } from './post-create-without-categories.input';
+import { PostCreateOrConnectWithoutCategoriesInput } from './post-create-or-connect-without-categories.input';
+import { PostUpsertWithWhereUniqueWithoutCategoriesInput } from './post-upsert-with-where-unique-without-categories.input';
+import { PostWhereUniqueInput } from './post-where-unique.input';
+import { PostUpdateWithWhereUniqueWithoutCategoriesInput } from './post-update-with-where-unique-without-categories.input';
+import { PostUpdateManyWithWhereWithoutCategoriesInput } from './post-update-many-with-where-without-categories.input';
+import { PostScalarWhereInput } from './post-scalar-where.input';
+
+@InputType()
+export class PostUncheckedUpdateManyWithoutCategoriesInput {
+
+    @Field(() => [PostCreateWithoutCategoriesInput], {nullable:true})
+    create?: Array<PostCreateWithoutCategoriesInput>;
+
+    @Field(() => [PostCreateOrConnectWithoutCategoriesInput], {nullable:true})
+    connectOrCreate?: Array<PostCreateOrConnectWithoutCategoriesInput>;
+
+    @Field(() => [PostUpsertWithWhereUniqueWithoutCategoriesInput], {nullable:true})
+    upsert?: Array<PostUpsertWithWhereUniqueWithoutCategoriesInput>;
+
+    @Field(() => [PostWhereUniqueInput], {nullable:true})
+    set?: Array<PostWhereUniqueInput>;
+
+    @Field(() => [PostWhereUniqueInput], {nullable:true})
+    disconnect?: Array<PostWhereUniqueInput>;
+
+    @Field(() => [PostWhereUniqueInput], {nullable:true})
+    delete?: Array<PostWhereUniqueInput>;
+
+    @Field(() => [PostWhereUniqueInput], {nullable:true})
+    connect?: Array<PostWhereUniqueInput>;
+
+    @Field(() => [PostUpdateWithWhereUniqueWithoutCategoriesInput], {nullable:true})
+    update?: Array<PostUpdateWithWhereUniqueWithoutCategoriesInput>;
+
+    @Field(() => [PostUpdateManyWithWhereWithoutCategoriesInput], {nullable:true})
+    updateMany?: Array<PostUpdateManyWithWhereWithoutCategoriesInput>;
+
+    @Field(() => [PostScalarWhereInput], {nullable:true})
+    deleteMany?: Array<PostScalarWhereInput>;
+}

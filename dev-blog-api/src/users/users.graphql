@@ -9,7 +9,7 @@ enum Role {
 type User {
   id: Int
   email: String!
-  # password: String!
+  password: String!
   posts: [Post!]!
   role: Role
   createdAt: DateTime
@@ -26,8 +26,12 @@ input UpdateUserInput {
   password: String!
 }
 
+input OrderByParams{
+  field: String
+  direction: String
+}
 type Query {
-  users: [User]!
+  users(orderBy: OrderByParams): [User]!
   user(id: Int!): User
 }
 
@@ -35,4 +39,7 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: Int!): User
+}
+type Subscription{
+  userAdded: User!
 }

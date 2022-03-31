@@ -5,27 +5,30 @@ type Post {
   author:User!
   authorId:Int!
   categories:[Category!]!
+  title: String
   content: String
   createdAt:DateTime
   updatedAt:DateTime
 }
 
 input CreatePostInput {
-  author:CreateUserInput!
-  authorId:Int!
-  categories:[CreateCategoryInput!]!
+  author:CreateUserInput
+  authorId:Int
+  title: String
+  categories:[CreateCategoryInput]
   content: String
   
 }
 
 input UpdatePostInput {
-    author:CreateUserInput!
+    author:CreateUserInput
     authorId:Int!
-    categories:[CreateCategoryInput!]!
+    categories:[CreateCategoryInput]
     content: String
 }
 
 type Query {
+  getTotalPost: Int!
   posts: [Post]!
   post(id: Int!): Post
 }
@@ -34,4 +37,7 @@ type Mutation {
   createPost(createPostInput: CreatePostInput!): Post!
   updatePost(updatePostInput: UpdatePostInput!): Post!
   removePost(id: Int!): Post
+}
+type Subscription{
+  postAdded: Post!
 }

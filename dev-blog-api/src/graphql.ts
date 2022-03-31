@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -22,16 +23,17 @@ export class UpdateCategoryInput {
 }
 
 export class CreatePostInput {
-    author: CreateUserInput;
-    authorId: number;
-    categories: CreateCategoryInput[];
+    author?: Nullable<CreateUserInput>;
+    authorId?: Nullable<number>;
+    title?: Nullable<string>;
+    categories?: Nullable<Nullable<CreateCategoryInput>[]>;
     content?: Nullable<string>;
 }
 
 export class UpdatePostInput {
-    author: CreateUserInput;
+    author?: Nullable<CreateUserInput>;
     authorId: number;
-    categories: CreateCategoryInput[];
+    categories?: Nullable<Nullable<CreateCategoryInput>[]>;
     content?: Nullable<string>;
 }
 
@@ -43,6 +45,11 @@ export class CreateUserInput {
 export class UpdateUserInput {
     email: string;
     password: string;
+}
+
+export class OrderByParams {
+    field?: Nullable<string>;
+    direction?: Nullable<string>;
 }
 
 export class Category {
@@ -58,11 +65,13 @@ export abstract class IQuery {
 
     abstract category(id: number): Nullable<Category> | Promise<Nullable<Category>>;
 
+    abstract getTotalPost(): number | Promise<number>;
+
     abstract posts(): Nullable<Post>[] | Promise<Nullable<Post>[]>;
 
     abstract post(id: number): Nullable<Post> | Promise<Nullable<Post>>;
 
-    abstract users(): Nullable<User>[] | Promise<Nullable<User>[]>;
+    abstract users(orderBy?: Nullable<OrderByParams>): Nullable<User>[] | Promise<Nullable<User>[]>;
 
     abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
@@ -92,14 +101,22 @@ export class Post {
     author: User;
     authorId: number;
     categories: Category[];
+    title?: Nullable<string>;
     content?: Nullable<string>;
     createdAt?: Nullable<DateTime>;
     updatedAt?: Nullable<DateTime>;
 }
 
+export abstract class ISubscription {
+    abstract postAdded(): Post | Promise<Post>;
+
+    abstract userAdded(): User | Promise<User>;
+}
+
 export class User {
     id?: Nullable<number>;
     email: string;
+    password: string;
     posts: Post[];
     role?: Nullable<Role>;
     createdAt?: Nullable<DateTime>;

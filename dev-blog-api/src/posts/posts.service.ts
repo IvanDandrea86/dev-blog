@@ -1,29 +1,42 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
-import { CreatePostInput } from './dto/create-post.input';
-import { UpdatePostInput } from './dto/update-post.input';
+import {PostCreateInput} from '../@generated/prisma-nestjs-graphql/post/post-create.input';
+import {PostUpdateInput} from '../@generated/prisma-nestjs-graphql/post/post-update.input';
+import {Injectable} from '@nestjs/common';
+import {PrismaService} from '../../prisma/prisma.service';
 
 @Injectable()
 export class PostsService {
-  constructor(private prisma: PrismaService) {}
+	constructor(private prisma: PrismaService) {}
 
-  create(createPostInput: CreatePostInput) {
-    return 'This action adds a new post';
-  }
+	async create(createPostInput: PostCreateInput) {
+		const post = await this.prisma.post.create({
+			data: createPostInput,
+		});
+		console.log(post);
+		return post;
+	}
 
-  findAll() {
-    return `This action returns all posts`;
-  }
+	findAll() {
+		return this.prisma.post.findMany({});
+	}
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
-  }
+	findOne(id: number) {
+		return `This action returns a #${id} post`;
+	}
 
-  update(id: number, updatePostInput: UpdatePostInput) {
-    return `This action updates a #${id} post`;
-  }
+	update(updatePostInput: PostUpdateInput) {
+		return `This action updates a # post`;
+	}
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
-  }
+	remove(id: number) {
+		return `This action removes a #${id} post`;
+	}
+	async getTotal() {
+		const response = await this.prisma.post.aggregate({
+			_count: {
+				id: true,
+			},
+		});
+		console.log(response);
+		return response._count.id;
+	}
 }
