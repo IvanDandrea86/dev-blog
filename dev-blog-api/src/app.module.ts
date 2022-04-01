@@ -11,12 +11,15 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLDateTime } from 'graphql-iso-date';
 import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      cors: { origin: true, credentials: true },
       typePaths: ['./**/*.graphql'],
+      context: ({ req }) => ({ req }),
       playground: false,
       introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
@@ -30,6 +33,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../../', 'dev-blog-ui/build'),
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

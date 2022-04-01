@@ -5,23 +5,23 @@
   "main": "./dev-blog-api/dist/main.js",
   "engines": {
     "node": "14.17.0",
-    "npm":"8.5.5",
-    "nest": "8.2.4",
-    "yarn":"1.22.18"
+    "npm": "8.5.5",
+   
+    "yarn": "1.22.18"
   },
   "scripts": {
-    "install:client":"cd ./dev-blog-ui/ && npm install --legacy-peer-deps",
+    "install:client": "cd ./dev-blog-ui/ && npm install --legacy-peer-deps",
     "install:api": "cd ./dev-blog-api/ && yarn install",
-    "build:api":"cd ./dev-blog-api/ && npm run build",
-    "build:client":"cd ./dev-blog-ui/ && npm run build",
+    "build:api": "cd ./dev-blog-api/ && npm run build",
+    "build:client": "cd ./dev-blog-ui/ && npm run build",
     "build": "npm run build:client && npm run build:api",
     "test:client": "cd ./dev-blog-ui/ && npm run test",
     "test:api": "cd ./dev-blog-api/ && npm run test",
     "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build",
-    "install":"npm run install:api && npm run install:client",
+    "install": "npm run install:api && npm run install:client",
     "test": "npm run test:client && npm run tes:client",
-    "migration":"cd dev-blog-api && yarn prisma:migrate:deploy",
-    "start":"cd dev-blog-api && yarn start"
+    "migration": "cd dev-blog-api && yarn prisma:migrate:deploy",
+    "start": "cd dev-blog-api && yarn start"
   },
   "repository": {
     "type": "git",
@@ -38,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/IvanDandrea86/dev-blog/issues"
   },
-  "homepage": "https://github.com/IvanDandrea86/dev-blog#readme"
+  "homepage": "https://github.com/IvanDandrea86/dev-blog#readme",
+  "dependencies": {
+   
+  }
 }

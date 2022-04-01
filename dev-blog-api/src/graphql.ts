@@ -12,6 +12,11 @@ export enum Role {
     USER = "USER"
 }
 
+export class LoginUserInput {
+    email: string;
+    password: string;
+}
+
 export class CreateCategoryInput {
     name: string;
     posts: CreatePostInput[];
@@ -52,6 +57,33 @@ export class OrderByParams {
     direction?: Nullable<string>;
 }
 
+export class LoginResponse {
+    access_token?: Nullable<string>;
+    user?: Nullable<User>;
+}
+
+export abstract class IMutation {
+    abstract login(loginUserInput: LoginUserInput): LoginResponse | Promise<LoginResponse>;
+
+    abstract createCategory(createCategoryInput: CreateCategoryInput): Category | Promise<Category>;
+
+    abstract updateCategory(updateCategoryInput: UpdateCategoryInput): Category | Promise<Category>;
+
+    abstract removeCategory(id: number): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract createPost(createPostInput: CreatePostInput): Post | Promise<Post>;
+
+    abstract updatePost(updatePostInput: UpdatePostInput): Post | Promise<Post>;
+
+    abstract removePost(id: number): Nullable<Post> | Promise<Nullable<Post>>;
+
+    abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
+
+    abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
+
+    abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
+}
+
 export class Category {
     id: number;
     name: string;
@@ -74,26 +106,6 @@ export abstract class IQuery {
     abstract users(orderBy?: Nullable<OrderByParams>): Nullable<User>[] | Promise<Nullable<User>[]>;
 
     abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
-}
-
-export abstract class IMutation {
-    abstract createCategory(createCategoryInput: CreateCategoryInput): Category | Promise<Category>;
-
-    abstract updateCategory(updateCategoryInput: UpdateCategoryInput): Category | Promise<Category>;
-
-    abstract removeCategory(id: number): Nullable<Category> | Promise<Nullable<Category>>;
-
-    abstract createPost(createPostInput: CreatePostInput): Post | Promise<Post>;
-
-    abstract updatePost(updatePostInput: UpdatePostInput): Post | Promise<Post>;
-
-    abstract removePost(id: number): Nullable<Post> | Promise<Nullable<Post>>;
-
-    abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
-
-    abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
-
-    abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export class Post {

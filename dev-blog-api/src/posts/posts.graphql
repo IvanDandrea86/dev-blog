@@ -17,7 +17,6 @@ input CreatePostInput {
   title: String
   categories:[CreateCategoryInput]
   content: String
-  
 }
 
 input UpdatePostInput {
