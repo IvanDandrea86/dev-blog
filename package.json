@@ -20,7 +20,7 @@
     "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build && yarn prisma:migrate",
     "install":"npm run install:api && npm run install:client",
     "test": "npm run test:client && npm run tes:client",
-    "migartion":"cd dev-blog-api && yarn prisma:migrate",
+    "migration":"cd dev-blog-api && yarn prisma:migrate:deploy",
     "start":"cd dev-blog-api && yarn start"
   },
   "repository": {
