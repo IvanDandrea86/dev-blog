@@ -27,7 +27,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     PostsModule,
     CategoriesModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../.../', 'dev-blog-ui/build'),
+      rootPath: join(__dirname, '../../../', 'dev-blog-ui/build'),
     }),
   ],
   controllers: [AppController],
