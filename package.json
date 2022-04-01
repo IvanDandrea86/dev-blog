@@ -8,8 +8,8 @@
     "npm":"8.5.5"
   },
   "scripts": {
-    "install:api": "cd ./dev-blog-api/ && yarn install",
-    "install":"yarn install:api",
+    "install:api": "cd ./dev-blog-api/ && npm install",
+    "install":"npm run install:api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
