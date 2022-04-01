@@ -5,7 +5,8 @@
   "main": "index.js",
   "engines": {
     "node": "14.17.0",
-    "npm":"8.5.5"
+    "npm":"8.5.5",
+    "nest": "8.2.4"
   },
   "scripts": {
     "install:client":"cd ./dev-blog-ui/ && npm install --legacy-peer-deps",
@@ -13,8 +14,11 @@
     "build:api":"cd ./dev-blog-api/ && npm run build",
     "build:client":"cd ./dev-blog-ui/ && npm run build",
     "build": "npm run build:client && npm run build:api",
+    "test:client": "cd ./dev-blog-ui/ && npm run test",
+    "test:api": "cd ./dev-blog-api/ && npm run test",
+    "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build",
     "install":"npm run install:api && npm run install:client",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:client && npm run tes:client"
   },
   "repository": {
     "type": "git",
