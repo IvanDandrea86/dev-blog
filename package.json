@@ -17,7 +17,7 @@
     "build": "npm run build:client && npm run build:api",
     "test:client": "cd ./dev-blog-ui/ && npm run test",
     "test:api": "cd ./dev-blog-api/ && npm run test",
-    "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build && yarn prisma:migrate",
+    "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build",
     "install":"npm run install:api && npm run install:client",
     "test": "npm run test:client && npm run tes:client",
     "migration":"cd dev-blog-api && yarn prisma:migrate:deploy",
