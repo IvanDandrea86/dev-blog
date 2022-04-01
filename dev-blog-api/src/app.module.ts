@@ -18,6 +18,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
       playground: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       resolvers: { DateTime: GraphQLDateTime },
       installSubscriptionHandlers: true,
