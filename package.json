@@ -13,7 +13,7 @@
     "build:api":"cd ./dev-blog-api/ && npm run build",
     "build:client":"cd ./dev-blog-ui/ && npm run build",
     "build": "npm run build:client && npm run build:api",
-    "install":"npm run install:api",
+    "install":"npm run install:api && npm run install:client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
