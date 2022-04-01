@@ -19,10 +19,9 @@ export class AuthService {
     }
     return null;
   }
-
   async login(user: User) {
     return {
-      access_token: 'jwt',
+      msg: 'logged in!',
       user: user,
     };
   }

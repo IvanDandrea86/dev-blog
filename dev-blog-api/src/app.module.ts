@@ -19,7 +19,7 @@ import { AuthModule } from './auth/auth.module';
       driver: ApolloDriver,
       cors: { origin: true, credentials: true },
       typePaths: ['./**/*.graphql'],
-      context: ({ req }) => ({ req }),
+      context: ({ req, res }) => ({ req, res }),
       playground: false,
       introspection: true,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],

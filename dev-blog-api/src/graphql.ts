@@ -58,7 +58,7 @@ export class OrderByParams {
 }
 
 export class LoginResponse {
-    access_token?: Nullable<string>;
+    msg?: Nullable<string>;
     user?: Nullable<User>;
 }
 

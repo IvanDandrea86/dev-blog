@@ -1,10 +1,10 @@
-import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
+import Redis from 'ioredis';
 import * as session from 'express-session';
 import * as passport from 'passport';
-import { AppModule } from './app.module';
-import Redis from 'ioredis';
 import * as connectRedis from 'connect-redis';
+import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 import {
   ALLOW_ORIGIN,
   COOKIENAME,
@@ -13,7 +13,6 @@ import {
   SECRET,
   __prod__,
 } from 'const';
-import { v4 as uuidv4 } from 'uuid';
 
 export const redis = new Redis(REDIS_URL);
 async function bootstrap() {
@@ -31,7 +30,6 @@ async function bootstrap() {
         client: redis,
         disableTouch: true,
       }),
-      genid: (_req: Express.Request) => uuidv4(),
       secret: SECRET,
       saveUninitialized: false,
       resave: false,
@@ -39,7 +37,7 @@ async function bootstrap() {
         secure: __prod__, // cookie only works in https
         maxAge: ONEDAY,
         httpOnly: true,
-        sameSite: 'none'//production 'lax',
+        sameSite: 'none', //production 'lax',
       },
       name: COOKIENAME,
     }),

@@ -1,5 +1,5 @@
 type LoginResponse {
-  access_token: String
+  msg: String
   user: User
 }
 input LoginUserInput{
