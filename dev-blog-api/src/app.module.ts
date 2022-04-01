@@ -9,6 +9,8 @@ import { PostsModule } from './posts/posts.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLDateTime } from 'graphql-iso-date';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -24,6 +26,9 @@ import { GraphQLDateTime } from 'graphql-iso-date';
     UsersModule,
     PostsModule,
     CategoriesModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../', 'dev-blog-ui/build'),
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

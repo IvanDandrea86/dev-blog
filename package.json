@@ -2,7 +2,7 @@
   "name": "dev-blog",
   "version": "1.0.0",
   "description": "Development Blog",
-  "main": "index.js",
+  "main": "./dev-blog-api/dist/main.js",
   "engines": {
     "node": "14.17.0",
     "npm":"8.5.5",
