@@ -6,7 +6,8 @@
   "engines": {
     "node": "14.17.0",
     "npm":"8.5.5",
-    "nest": "8.2.4"
+    "nest": "8.2.4",
+    "yarn":"1.22.18"
   },
   "scripts": {
     "install:client":"cd ./dev-blog-ui/ && npm install --legacy-peer-deps",
