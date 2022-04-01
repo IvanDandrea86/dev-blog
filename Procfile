@@ -1,1 +1,2 @@
-web: node ./dev-blog-api/dist/main.js
+web: npm start
+release: npm run migration

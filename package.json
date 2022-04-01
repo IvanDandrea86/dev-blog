@@ -19,7 +19,9 @@
     "test:api": "cd ./dev-blog-api/ && npm run test",
     "postinstall": "cd ./dev-blog-api/ && npx prisma generate && npm run build",
     "install":"npm run install:api && npm run install:client",
-    "test": "npm run test:client && npm run tes:client"
+    "test": "npm run test:client && npm run tes:client",
+    "migartion":"cd dev-blog-api && yarn prisma:migrate",
+    "start":"cd dev-blog-api && yarn start"
   },
   "repository": {
     "type": "git",
