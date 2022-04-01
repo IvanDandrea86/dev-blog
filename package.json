@@ -8,7 +8,11 @@
     "npm":"8.5.5"
   },
   "scripts": {
+    "install:client":"cd ./dev-blog-ui/ && npm install --legacy-peer-deps",
     "install:api": "cd ./dev-blog-api/ && npm install --legacy-peer-deps",
+    "build:api":"cd ./dev-blog-api/ && npm run build",
+    "build:client":"cd ./dev-blog-ui/ && npm run build",
+    "build": "npm run build:client && npm run build:api",
     "install":"npm run install:api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
