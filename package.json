@@ -8,7 +8,7 @@
     "npm":"8.5.5"
   },
   "scripts": {
-    "install:api": "cd ./dev-blog-api/ && npm install",
+    "install:api": "cd ./dev-blog-api/ && npm install --legacy-peer-deps",
     "install":"npm run install:api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
