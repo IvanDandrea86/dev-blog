@@ -1,0 +1,31 @@
+{
+  "name": "dev-blog",
+  "version": "1.0.0",
+  "description": "Development Blog",
+  "main": "index.js",
+  "engines": {
+    "node": "14.17.0",
+    "npm":"8.5.5"
+  },
+  "scripts": {
+    "install:api": "cd ./dev-blog-api/ && yarn install",
+    "install":"yarn install:api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanDandrea86/dev-blog.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "Nest.js",
+    "Prisma",
+    "PosgreSQL"
+  ],
+  "author": "Ivan D'Andrea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanDandrea86/dev-blog/issues"
+  },
+  "homepage": "https://github.com/IvanDandrea86/dev-blog#readme"
+}

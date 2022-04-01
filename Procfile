@@ -1,0 +1,1 @@
+api: node ./dev-blog-api/dist/main.js
