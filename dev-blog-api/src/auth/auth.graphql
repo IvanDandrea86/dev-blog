@@ -9,4 +9,9 @@ input LoginUserInput{
 
 type Mutation {
   login(loginUserInput: LoginUserInput!):LoginResponse!
+  logout:Boolean
+}
+
+type Query {
+  whoAmI: User!
 }

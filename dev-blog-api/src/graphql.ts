@@ -65,6 +65,8 @@ export class LoginResponse {
 export abstract class IMutation {
     abstract login(loginUserInput: LoginUserInput): LoginResponse | Promise<LoginResponse>;
 
+    abstract logout(): Nullable<boolean> | Promise<Nullable<boolean>>;
+
     abstract createCategory(createCategoryInput: CreateCategoryInput): Category | Promise<Category>;
 
     abstract updateCategory(updateCategoryInput: UpdateCategoryInput): Category | Promise<Category>;
@@ -84,15 +86,9 @@ export abstract class IMutation {
     abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
 
-export class Category {
-    id: number;
-    name: string;
-    posts: Post[];
-    createdAt?: Nullable<DateTime>;
-    updatedAt?: Nullable<DateTime>;
-}
-
 export abstract class IQuery {
+    abstract whoAmI(): User | Promise<User>;
+
     abstract categories(): Nullable<Category>[] | Promise<Nullable<Category>[]>;
 
     abstract category(id: number): Nullable<Category> | Promise<Nullable<Category>>;
@@ -106,6 +102,14 @@ export abstract class IQuery {
     abstract users(orderBy?: Nullable<OrderByParams>): Nullable<User>[] | Promise<Nullable<User>[]>;
 
     abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
+}
+
+export class Category {
+    id: number;
+    name: string;
+    posts: Post[];
+    createdAt?: Nullable<DateTime>;
+    updatedAt?: Nullable<DateTime>;
 }
 
 export class Post {

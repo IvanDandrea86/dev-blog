@@ -4,9 +4,11 @@ import { Prisma } from '@prisma/client';
 import { OrderByParams } from '../graphql';
 import { UserCreateInput } from '../@generated/prisma-nestjs-graphql/user/user-create.input';
 import { User } from '@generated/prisma-nestjs-graphql/user/user.model';
-import { Inject } from '@nestjs/common';
+import { Inject, UseGuards } from '@nestjs/common';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { PUB_SUB } from '../pubSub.module';
+import { GqlAuthGuard } from '../auth/guards/gql-auth.guard';
+import { AuthenticatedGuard } from '../auth/guards/authenticated.guard';
 
 const USER_ADDED_EVENT = 'userAdded';
 
@@ -25,6 +27,7 @@ export class UsersResolver {
   }
 
   @Query('users')
+  @UseGuards(GqlAuthGuard)
   findAll(@Args('orderBy') orderBy: OrderByParams) {
     return this.usersService.findAll(orderBy);
   }

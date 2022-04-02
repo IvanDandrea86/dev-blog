@@ -37,14 +37,14 @@ async function bootstrap() {
         secure: __prod__, // cookie only works in https
         maxAge: ONEDAY,
         httpOnly: true,
-        sameSite: 'none', //production 'lax',
+        sameSite: 'lax', //production 'lax',
       },
       name: COOKIENAME,
     }),
   );
   app.use(passport.initialize());
   app.use(passport.session());
-  app.setGlobalPrefix('api');
+
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

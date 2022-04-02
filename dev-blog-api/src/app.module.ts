@@ -20,15 +20,16 @@ import { AuthModule } from './auth/auth.module';
       cors: { origin: true, credentials: true },
       typePaths: ['./**/*.graphql'],
       context: ({ req, res }) => ({ req, res }),
-      playground: false,
+      playground: true,
       introspection: true,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      // plugins: [ApolloServerPluginLandingPageLocalDefault()], // APollo Studio
       resolvers: { DateTime: GraphQLDateTime },
       installSubscriptionHandlers: true,
     }),
     ConfigModule.forRoot(),
     UsersModule,
     PostsModule,
+
     CategoriesModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../../', 'dev-blog-ui/build'),
