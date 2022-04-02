@@ -65,7 +65,7 @@ export class LoginResponse {
 export abstract class IMutation {
     abstract login(loginUserInput: LoginUserInput): LoginResponse | Promise<LoginResponse>;
 
-    abstract logout(): Nullable<boolean> | Promise<Nullable<boolean>>;
+    abstract logout(): LoginResponse | Promise<LoginResponse>;
 
     abstract createCategory(createCategoryInput: CreateCategoryInput): Category | Promise<Category>;
 
@@ -87,7 +87,7 @@ export abstract class IMutation {
 }
 
 export abstract class IQuery {
-    abstract whoAmI(): User | Promise<User>;
+    abstract whoAmI(): Nullable<User> | Promise<Nullable<User>>;
 
     abstract categories(): Nullable<Category>[] | Promise<Nullable<Category>[]>;
 

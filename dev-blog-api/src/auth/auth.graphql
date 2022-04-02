@@ -9,9 +9,9 @@ input LoginUserInput{
 
 type Mutation {
   login(loginUserInput: LoginUserInput!):LoginResponse!
-  logout:Boolean
+  logout:LoginResponse!
 }
 
 type Query {
-  whoAmI: User!
+  whoAmI: User
 }

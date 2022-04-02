@@ -14,14 +14,12 @@ export class UsersService {
       data: { ...createUserInput, password: hashPassword },
     });
   }
-
   findAll(orderBy: { field?: string; direction?: string }) {
     const { field = 'createdAt', direction = 'desc' } = orderBy || {};
     return this.prisma.user.findMany({
       orderBy: { [field]: direction },
     });
   }
-
   findOne(userWhereUniqueInput: UserWhereUniqueInput) {
     return this.prisma.user.findUnique({ where: userWhereUniqueInput });
   }

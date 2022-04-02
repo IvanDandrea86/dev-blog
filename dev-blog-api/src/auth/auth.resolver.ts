@@ -16,30 +16,26 @@ export class AuthResolver {
 
   @Mutation(() => LoginResponse)
   @UseGuards(GqlAuthGuard)
-  async login(
+  login(
     @Args('loginUserInput') loginUserInput: LoginUserInput,
     @Context() context,
-    @Context() { req },
   ) {
-    await req.logIn(context.user, (err: any) => {
-      if (err) {
-        return console.error(err);
-      }
-      return req.user;
-    });
-    return this.authService.login(req.user);
+    return this.authService.login(context.req.user);
   }
 
   @Query(() => User)
-  // @UseGuards(GqlAuthGuard)
-  whoAmI(@CurrentUser() user: User) {
-    return this.userService.findOne({ id: user.id });
+  whoAmI(@CurrentUser() user: User | null) {
+    if (user) {
+      return this.userService.findOne({ id: user.id });
+    }
+    return null;
   }
 
-  @Mutation(() => Boolean)
+  @Mutation(() => LoginResponse)
   async logout(@Context() { req, res }) {
     await req.logout();
-    req.session = null;
-    res.clearCookie(COOKIENAME);
+    await req.session.destroy();
+    await res.clearCookie(COOKIENAME);
+    return this.authService.logout(req.user);
   }
 }

@@ -25,4 +25,10 @@ export class AuthService {
       user: user,
     };
   }
+  async logout(user: User) {
+    return {
+      msg: 'logout!',
+      user: user,
+    };
+  }
 }
