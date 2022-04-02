@@ -29,7 +29,6 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot(),
     UsersModule,
     PostsModule,
-
     CategoriesModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../../../', 'dev-blog-ui/build'),
